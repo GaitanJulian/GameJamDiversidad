@@ -5,17 +5,18 @@ using TMPro;
 
 public class HUB : MonoBehaviour
 {
-    public GameManager gameManager;
-    public TextMeshProUGUI puntos;
+    [SerializeField] private GameManager gameManager;
+    [SerializeField] private TextMeshProUGUI puntos;
     // Start is called before the first frame update
-    void Start()
+    private void Awake()
     {
-        
+        gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
     }
+
 
     // Update is called once per frame
     void Update()
     {
-        puntos.text = gameManager.PuntosTotales.ToString();
+        puntos.text = "Points: " + gameManager.PuntosTotales;
     }
 }

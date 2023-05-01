@@ -27,7 +27,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8505458791609641304}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.4188857, y: -0.25299442, z: -0.078822166}
+  m_LocalPosition: {x: 0.4188857, y: -0.25299442, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -96,7 +96,7 @@ BoxCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
@@ -124,3 +124,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e7d6f5de314462f41a2398a465d3e47b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  coinValue: 1
+  gameManager: {fileID: 5392344648052733453, guid: 8ee699f7c802cc3469fb6fd718d5c9ef, type: 3}
