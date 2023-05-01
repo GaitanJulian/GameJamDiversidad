@@ -5,14 +5,15 @@ using UnityEngine;
 public class coin : MonoBehaviour
 {
     public int coinValue = 1;
+    public GameManager gameManager;
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.CompareTag("Player"))
         {
-            // Añadir el valor de la mondeda
-
-            Destroy(gameObject);
+            // Aï¿½adir el valor de la mondeda
+            gameManager.SumarPuntos(coinValue);
+            transform.position = new Vector3(-1.8f,-2f,0);
         }
 
 
