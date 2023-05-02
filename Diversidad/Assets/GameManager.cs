@@ -7,7 +7,8 @@ public class GameManager : MonoBehaviour
     public int PuntosTotales { get { return puntosTotales; } }
     private int puntosTotales;
 
-
+    public delegate void PointsUpdateHandler();
+    public static event PointsUpdateHandler OnPointsUpdate;
     private void Start()
     {
         puntosTotales = 0;
@@ -17,6 +18,9 @@ public class GameManager : MonoBehaviour
     public void SumarPuntos(int puntosASumar)
     {
         puntosTotales += puntosASumar;
+
+        // Raise the event to notify subscribers that the points have been updated
+        OnPointsUpdate?.Invoke();
     }
 
 

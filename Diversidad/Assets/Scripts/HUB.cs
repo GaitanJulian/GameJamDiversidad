@@ -7,16 +7,23 @@ public class HUB : MonoBehaviour
 {
     [SerializeField] private GameManager gameManager;
     [SerializeField] private TextMeshProUGUI puntos;
-    // Start is called before the first frame update
+
+    // Start is called before the first frame 
     private void Awake()
     {
         gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
+        GameManager.OnPointsUpdate += UpdatePointsText;
     }
 
-
-    // Update is called once per frame
-    void Update()
+    private void UpdatePointsText()
     {
         puntos.text = "Points: " + gameManager.PuntosTotales;
     }
+
+    //This method avoids memory leaks
+    private void OnDestroy()
+    {
+        GameManager.OnPointsUpdate -= UpdatePointsText;
+    }
+
 }
