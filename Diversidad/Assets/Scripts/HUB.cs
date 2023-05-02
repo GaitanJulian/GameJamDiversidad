@@ -4,8 +4,7 @@ using UnityEngine;
 using TMPro;
 
 public class HUB : MonoBehaviour
-{
-    [SerializeField] private GameManager gameManager;
+{ 
     [SerializeField] private TextMeshProUGUI puntos;
 
     // Start is called before the first frame 
