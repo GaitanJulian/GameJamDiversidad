@@ -11,11 +11,15 @@ public class coin : MonoBehaviour
         if (collision.gameObject.CompareTag("Player"))
         {
             // A�adir el valor de la mondeda
-            GameManager.Instance.SumarPuntos(coinValue);
+            SumPoints();
             gameObject.SetActive(false);
             Destroy(gameObject);
         }
     }
 
+    private void SumPoints()
+    {
+        GameManager.Instance.SumarPuntos(coinValue);
+    }
     
 }
