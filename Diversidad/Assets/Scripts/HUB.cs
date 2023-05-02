@@ -11,13 +11,12 @@ public class HUB : MonoBehaviour
     // Start is called before the first frame 
     private void Awake()
     {
-        gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
         GameManager.OnPointsUpdate += UpdatePointsText;
     }
 
     private void UpdatePointsText()
     {
-        puntos.text = "Points: " + gameManager.PuntosTotales;
+        puntos.text = "Points: " + GameManager.Instance.PuntosTotales;
     }
 
     //This method avoids memory leaks
