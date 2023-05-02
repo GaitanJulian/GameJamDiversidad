@@ -7,16 +7,26 @@ public class ObstacleSpawner : MonoBehaviour
     public Transform spawnPoint;
     public float spawnInterval = 2f;
     public GameObject[] obstacleSets;
+
+    private Coroutine spawnCoroutine;
+
     // Start is called before the first frame update
     void Start()
     {
-        StartCoroutine(SpawnObstacles());
+        PlayerController.OnPlayerDead += StopSpawning;
+        spawnCoroutine = StartCoroutine(SpawnObstacles());
+    }
+
+    private void StopSpawning()
+    {
+        StopCoroutine(spawnCoroutine);
     }
 
     private IEnumerator SpawnObstacles()
     {
         while (true)
         {
+
             // Randomly select an obstacle set
             int index = Random.Range(0, obstacleSets.Length);
             GameObject obstacleSet = obstacleSets[index];
@@ -29,9 +39,9 @@ public class ObstacleSpawner : MonoBehaviour
         }
     }
 
-    // Update is called once per frame
-    void Update()
+    private void OnDestroy()
     {
-        
+        PlayerController.OnPlayerDead -= StopSpawning;
     }
+
 }
