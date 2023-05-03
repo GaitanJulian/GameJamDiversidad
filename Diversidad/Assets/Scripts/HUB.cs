@@ -9,6 +9,7 @@ public class HUB : MonoBehaviour
 
     [SerializeField] private TextMeshProUGUI puntos;
     [SerializeField] private GameObject panel;
+    [SerializeField] private TextMeshProUGUI finalScore;
 
     // Start is called before the first frame 
     private void Awake()
@@ -44,6 +45,7 @@ public class HUB : MonoBehaviour
     private void loseUI()
     {
         puntos.gameObject.SetActive(false);
+        finalScore.text += " " + GameManager.Instance.PuntosTotales;
         panel.gameObject.SetActive(true);
 
     }
